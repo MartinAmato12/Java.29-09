@@ -1,75 +1,20 @@
-const BBDD = [
-    {
-        "id": 1,
-        "nombre": "Campera Negra",
-        "img": "./assets/img/camper.jpg.jfif",
-        "precio": 80,
-        "cantidad":1
-    },
-    {
-        "id": 2,
-        "nombre": "Mochila Amarilla",
-        "img": "./assets/img/mochila.jpg.jfif",
-        "precio": 25,
-        "cantidad":1
-    },
-    {
-        "id": 3,
-        "nombre": "Zapatillas",
-        "img": "./assets/img/zapa.jpg.jfif",
-        "precio": 70,
-        "cantidad":1
-    },
-    {
-        "id": 4,
-        "nombre": "Toallas",
-        "img": "./assets/img/toa.jpg.jfif",
-        "precio": 10,
-        "cantidad":1
-    },
-    {
-        "id": 5,
-        "nombre": "Falda Skater",
-        "img": "./assets/img/po.jpg.jfif",
-        "precio": 70,
-        "cantidad":1
-    },
-    {
-        "id": 6,
-        "nombre": "Traje de Baño",
-        "img": "./assets/img/panti.jpg.jfif",
-        "precio": 30,
-        "cantidad":1
-    },
-    {
-        "id": 7,
-        "nombre": "Pantalon Largo",
-        "img": "./assets/img/pantalon.jpg.jfif",
-        "precio": 50,
-        "cantidad":1
-    },
-    {
-        "id": 8,
-        "nombre": "Medias Largas",
-        "img": "./assets/img/media.jpg.jfif",
-        "precio": 5,
-        "cantidad":1
-    },
-    {
-        "id": 9,
-        "nombre": "Remera vestido",
-        "img": "./assets/img/remegran.jpg.jfif",
-        "precio": 28,
-        "cantidad":1
-    },
-    {
-        "id": 10,
-        "nombre": "Buzo con Capucha",
-        "img": "./assets/img/bu.jpg.jfif",
-        "precio": 90,
-        "cantidad":1
-    }
-]
+
+ const lista = document.getElementById('listado');
+
+ fetch('/data.json')
+     .then((response) => response.json())
+     .then((data) => {
+         data.forEach((producto) => {
+             const li = document.createElement('li');
+             li.innerHTML = `
+                 <h4>${producto.nombre}</h4>
+                 <p>${producto.precio}</p>
+             `
+             lista.appendChild(li);
+         })
+     })
+
+
 
 const carrito = [];
 function renderizarProductos(){
