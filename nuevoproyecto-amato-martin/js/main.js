@@ -1,7 +1,7 @@
 
  const lista = document.getElementById('listado');
 
- fetch('/data.json')
+ fetch('../json/data.json')
      .then((response) => response.json())
      .then((data) => {
          data.forEach((producto) => {
@@ -14,14 +14,12 @@
          })
      })
 
-
-
 const carrito = [];
 function renderizarProductos(){
 
     const tienda = document.getElementById('tienda');  
 
-    // CREACION DE BOTONES DE FILTRO
+    // Botones de filtro
     const btnFiltros = [
         'Mayor precio', 
         'Menor precio', 
